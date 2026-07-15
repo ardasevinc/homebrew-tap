@@ -1,6 +1,7 @@
 class Tele < Formula
   desc "Unofficial Telegram MTProto CLI for agents and humans"
   homepage "https://github.com/ardasevinc/tele"
+  version "1.0.1"
   license "MIT"
 
   on_macos do
