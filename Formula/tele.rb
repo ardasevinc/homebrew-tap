@@ -5,21 +5,21 @@ class Tele < Formula
 
   on_macos do
     if Hardware::CPU.arm?
-      url "https://github.com/ardasevinc/tele/releases/download/v0.1.0-alpha.9/tele_0.1.0-alpha.9_darwin_arm64.tar.gz"
-      sha256 "25d58d59d9b0a84f5e74411b1829577380a8ad354847b96514761a74c4613a0f"
+      url "https://github.com/ardasevinc/tele/releases/download/v0.1.0-alpha.10/tele_0.1.0-alpha.10_darwin_arm64.tar.gz"
+      sha256 "0c02f985ac42d945765d9e68d7e1db9392ac80c6353e75aab7a54db5f6f7ae21"
     else
-      url "https://github.com/ardasevinc/tele/releases/download/v0.1.0-alpha.9/tele_0.1.0-alpha.9_darwin_amd64.tar.gz"
-      sha256 "df7a7d9abdbf9cec311b8b23a2059027c35e1a9277a76a4104c05964c0b7fe88"
+      url "https://github.com/ardasevinc/tele/releases/download/v0.1.0-alpha.10/tele_0.1.0-alpha.10_darwin_amd64.tar.gz"
+      sha256 "1e2000ef5b414f338bcc8a050cc63d085bb7c30ed81eaaaac3e3b16362be4a4d"
     end
   end
 
   on_linux do
     if Hardware::CPU.arm?
-      url "https://github.com/ardasevinc/tele/releases/download/v0.1.0-alpha.9/tele_0.1.0-alpha.9_linux_arm64.tar.gz"
-      sha256 "dc559444bf940ddd9f7281c628fcb613eacc8ef46f2fcd924bf2d09d304e4716"
+      url "https://github.com/ardasevinc/tele/releases/download/v0.1.0-alpha.10/tele_0.1.0-alpha.10_linux_arm64.tar.gz"
+      sha256 "38c532c575bf0a24e139e0ffa7a5da8cc7c5ddcf4b893f2fb6582d9c30fa81c3"
     else
-      url "https://github.com/ardasevinc/tele/releases/download/v0.1.0-alpha.9/tele_0.1.0-alpha.9_linux_amd64.tar.gz"
-      sha256 "dd895622ed788c315a64c928d77b7a425144d9df0682b7e44b7a7429c6dbee80"
+      url "https://github.com/ardasevinc/tele/releases/download/v0.1.0-alpha.10/tele_0.1.0-alpha.10_linux_amd64.tar.gz"
+      sha256 "10f44155a85140ef4fd1fdc1cd7a096b1e3bc268db1ce4c0815c6ad533ba41a9"
     end
   end
 
