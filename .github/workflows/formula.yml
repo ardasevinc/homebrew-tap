@@ -31,6 +31,13 @@ jobs:
     timeout-minutes: 15
     steps:
       - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
+      - name: Install pinned Homebrew on Linux
+        if: runner.os == 'Linux'
+        run: |
+          git clone --filter=blob:none https://github.com/Homebrew/brew.git "$RUNNER_TEMP/homebrew"
+          git -C "$RUNNER_TEMP/homebrew" checkout aa32874f5fbedd67e8284e90dfe13bd32148d413
+          printf '%s\n' "$RUNNER_TEMP/homebrew/bin" >> "$GITHUB_PATH"
+          printf '%s\n' 'HOMEBREW_NO_AUTO_UPDATE=1' >> "$GITHUB_ENV"
       - name: Verify Homebrew runtime
         run: |
           command -v brew
