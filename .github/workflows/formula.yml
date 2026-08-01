@@ -1,0 +1,44 @@
+name: Formula CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: formula-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  tele:
+    name: tele (${{ matrix.target }})
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - target: darwin-arm64
+            os: macos-26
+          - target: darwin-amd64
+            os: macos-15-intel
+          - target: linux-amd64
+            os: ubuntu-latest
+          - target: linux-arm64
+            os: ubuntu-24.04-arm
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
+      - name: Verify Homebrew runtime
+        run: |
+          command -v brew
+          brew --version
+      - name: Install and test the checked-out formula
+        run: |
+          brew tap ardasevinc/tap "$GITHUB_WORKSPACE"
+          brew install ardasevinc/tap/tele
+          brew test ardasevinc/tap/tele
+          tele --version
+          tele --help >/dev/null
