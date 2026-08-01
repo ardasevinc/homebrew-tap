@@ -1,26 +1,26 @@
 class Tele < Formula
   desc "Unofficial Telegram MTProto CLI for agents and humans"
   homepage "https://github.com/ardasevinc/tele"
-  version "1.1.0"
+  version "1.2.0"
   license "MIT"
 
   on_macos do
     if Hardware::CPU.arm?
-      url "https://github.com/ardasevinc/tele/releases/download/v1.1.0/tele_1.1.0_darwin_arm64.tar.gz"
-      sha256 "b9073319e11ffff83bc59003b83d9603195bc21cc30945d0ad9e3da76ae50fb6"
+      url "https://github.com/ardasevinc/tele/releases/download/v1.2.0/tele_1.2.0_darwin_arm64.tar.gz"
+      sha256 "69f6939940124bf232b56f39ee647c240f8eaf3b582b6e6f954d66baef5240d0"
     else
-      url "https://github.com/ardasevinc/tele/releases/download/v1.1.0/tele_1.1.0_darwin_amd64.tar.gz"
-      sha256 "94bacd96f7f25fcca27efc23ac8106a38fad70414d5379b8778ce26cd55064d0"
+      url "https://github.com/ardasevinc/tele/releases/download/v1.2.0/tele_1.2.0_darwin_amd64.tar.gz"
+      sha256 "807bdc010b73271d12ff2f12e2309c120e85ce028ec5996d39e1bdd2c57cf190"
     end
   end
 
   on_linux do
     if Hardware::CPU.arm?
-      url "https://github.com/ardasevinc/tele/releases/download/v1.1.0/tele_1.1.0_linux_arm64.tar.gz"
-      sha256 "ac687dbe6dbcf7eb651ffe6927a2d9aa8e6e3adf86e538e6b3108569150a33d7"
+      url "https://github.com/ardasevinc/tele/releases/download/v1.2.0/tele_1.2.0_linux_arm64.tar.gz"
+      sha256 "14dda54645f2b62ac47e4f44956176e5bc1093490f99b78aacbf7d28ad239382"
     else
-      url "https://github.com/ardasevinc/tele/releases/download/v1.1.0/tele_1.1.0_linux_amd64.tar.gz"
-      sha256 "3bcb3b1c99333eb53fcc1127eca483e20531214e7a78e50c1e61043ffa588e9e"
+      url "https://github.com/ardasevinc/tele/releases/download/v1.2.0/tele_1.2.0_linux_amd64.tar.gz"
+      sha256 "7862175157ff0c45253ededbf857711f2d513d6215f9e918b969902513b12474"
     end
   end
 
