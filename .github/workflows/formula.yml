@@ -49,3 +49,5 @@ jobs:
           brew test ardasevinc/tap/tele
           tele --version
           tele --help >/dev/null
+          tele --json update --check > "$RUNNER_TEMP/tele-update.json"
+          python3 -c 'import json,sys; d=json.load(open(sys.argv[1]))["data"]; assert d["status"] == "current" and d["install_manager"] == "homebrew" and d["update_supported"] is False and d["recommended_command"] == "brew upgrade tele"' "$RUNNER_TEMP/tele-update.json"
