@@ -1,6 +1,8 @@
 class Tele < Formula
   desc "Unofficial Telegram MTProto CLI for agents and humans"
   homepage "https://github.com/ardasevinc/tele"
+  # Required because Homebrew otherwise parses the trailing arm64/amd64 token.
+  version "1.2.2"
   license "MIT"
 
   on_macos do
