@@ -49,3 +49,42 @@ jobs:
           brew test ardasevinc/tap/nb
           nb version --json > "$RUNNER_TEMP/nb-version.json"
           python3 -c 'import json,sys; d=json.load(open(sys.argv[1])); assert d["ok"] is True and d["data"]["version"] == "1.0.0"' "$RUNNER_TEMP/nb-version.json"
+
+  tele:
+    name: tele (${{ matrix.target }})
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - target: darwin-arm64
+            os: macos-26
+          - target: darwin-amd64
+            os: macos-15-intel
+          - target: linux-amd64
+            os: ubuntu-latest
+          - target: linux-arm64
+            os: ubuntu-24.04-arm
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
+      - name: Install pinned Homebrew on Linux
+        if: runner.os == 'Linux'
+        run: |
+          git clone --filter=blob:none https://github.com/Homebrew/brew.git "$RUNNER_TEMP/homebrew"
+          git -C "$RUNNER_TEMP/homebrew" checkout aa32874f5fbedd67e8284e90dfe13bd32148d413
+          printf '%s\n' "$RUNNER_TEMP/homebrew/bin" >> "$GITHUB_PATH"
+          printf '%s\n' 'HOMEBREW_NO_AUTO_UPDATE=1' >> "$GITHUB_ENV"
+      - name: Verify Homebrew runtime
+        run: |
+          command -v brew
+          brew --version
+      - name: Install and test the checked-out formula
+        run: |
+          brew tap ardasevinc/tap "$GITHUB_WORKSPACE"
+          brew install ardasevinc/tap/tele
+          brew test ardasevinc/tap/tele
+          tele --version
+          tele --help >/dev/null
+          tele --json update --check > "$RUNNER_TEMP/tele-update.json"
+          python3 -c 'import json,sys; d=json.load(open(sys.argv[1]))["data"]; assert d["status"] == "current" and d["install_manager"] == "homebrew" and d["update_supported"] is False and d["recommended_command"] == "brew upgrade tele"' "$RUNNER_TEMP/tele-update.json"
