@@ -11,7 +11,7 @@ class Nb < Formula
   on_macos do
     if Hardware::CPU.intel?
       url "https://github.com/ardasevinc/netbird-cli/releases/download/v1.0.0/nb_1.0.0_darwin_amd64.tar.gz"
-      sha256 "dff9a1b05a07b5fbcee59ee2fe9a71dc06cbb587cdc33ee319380ab18c0534e4"
+      sha256 "ecfac16c0d4d7fb879d2dea59aedd43bb25603f359c9403b5d12838fd54a765f"
 
       define_method(:install) do
         bin.install "nb"
@@ -19,7 +19,7 @@ class Nb < Formula
     end
     if Hardware::CPU.arm?
       url "https://github.com/ardasevinc/netbird-cli/releases/download/v1.0.0/nb_1.0.0_darwin_arm64.tar.gz"
-      sha256 "af6ff32462306727541f4a311642f4877f8aaa47eb35d660d3006535357605a4"
+      sha256 "5265314cd98bbdc8f522fd1a45faed0ba96104d4260b22f0f4a9dcc573f57c1a"
 
       define_method(:install) do
         bin.install "nb"
@@ -30,14 +30,14 @@ class Nb < Formula
   on_linux do
     if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
       url "https://github.com/ardasevinc/netbird-cli/releases/download/v1.0.0/nb_1.0.0_linux_amd64.tar.gz"
-      sha256 "86d6666e47c97ab068246f49abb4f2defd1bb7600703ecf92cf70b23a2d9e9b2"
+      sha256 "6b43ef9e80c13bdf1905e98074ada6ea5347b3d67030cbbdcdda247ce115fc6d"
       define_method(:install) do
         bin.install "nb"
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
       url "https://github.com/ardasevinc/netbird-cli/releases/download/v1.0.0/nb_1.0.0_linux_arm64.tar.gz"
-      sha256 "ec754c3e1eaf21aa523df3babc9a122d138713fe8fa3196c7a82bda9529b9621"
+      sha256 "a294561b2d0fdbd2ff73607ceea709ed0e7b481559a4240ed6b902d07e6a2a43"
       define_method(:install) do
         bin.install "nb"
       end

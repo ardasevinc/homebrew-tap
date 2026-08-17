@@ -13,8 +13,8 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  tele:
-    name: tele (${{ matrix.target }})
+  nb:
+    name: nb (${{ matrix.target }})
     strategy:
       fail-fast: false
       matrix:
@@ -45,9 +45,7 @@ jobs:
       - name: Install and test the checked-out formula
         run: |
           brew tap ardasevinc/tap "$GITHUB_WORKSPACE"
-          brew install ardasevinc/tap/tele
-          brew test ardasevinc/tap/tele
-          tele --version
-          tele --help >/dev/null
-          tele --json update --check > "$RUNNER_TEMP/tele-update.json"
-          python3 -c 'import json,sys; d=json.load(open(sys.argv[1]))["data"]; assert d["status"] == "current" and d["install_manager"] == "homebrew" and d["update_supported"] is False and d["recommended_command"] == "brew upgrade tele"' "$RUNNER_TEMP/tele-update.json"
+          brew install ardasevinc/tap/nb
+          brew test ardasevinc/tap/nb
+          nb version --json > "$RUNNER_TEMP/nb-version.json"
+          python3 -c 'import json,sys; d=json.load(open(sys.argv[1])); assert d["ok"] is True and d["data"]["version"] == "1.0.0"' "$RUNNER_TEMP/nb-version.json"
