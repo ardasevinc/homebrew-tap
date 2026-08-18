@@ -48,7 +48,8 @@ jobs:
           brew install ardasevinc/tap/nb
           brew test ardasevinc/tap/nb
           nb version --json > "$RUNNER_TEMP/nb-version.json"
-          python3 -c 'import json,sys; d=json.load(open(sys.argv[1])); assert d["ok"] is True and d["data"]["version"] == "1.0.0"' "$RUNNER_TEMP/nb-version.json"
+          expected_version="$(sed -n 's/^[[:space:]]*version "\([^"]*\)"/\1/p' Formula/nb.rb | head -n 1)"
+          python3 -c 'import json,sys; d=json.load(open(sys.argv[1])); assert d["ok"] is True and d["data"]["version"] == sys.argv[2]' "$RUNNER_TEMP/nb-version.json" "$expected_version"
 
   tele:
     name: tele (${{ matrix.target }})
