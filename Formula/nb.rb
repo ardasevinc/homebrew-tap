@@ -5,21 +5,21 @@
 class Nb < Formula
   desc "An agent-first NetBird management CLI"
   homepage "https://github.com/ardasevinc/netbird-cli"
-  version "1.1.3"
+  version "1.1.4"
   license "Apache-2.0"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/ardasevinc/netbird-cli/releases/download/v1.1.3/nb_1.1.3_darwin_amd64.tar.gz"
-      sha256 "8eed1bead960283b6267bc09945474d27b7956828e2633e54d0bf7fa697dd2e6"
+      url "https://github.com/ardasevinc/netbird-cli/releases/download/v1.1.4/nb_1.1.4_darwin_amd64.tar.gz"
+      sha256 "97e485e046430f785e0350aaca9725b88cbca7e57453afdecf0b6dad997fef62"
 
       define_method(:install) do
         bin.install "nb"
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/ardasevinc/netbird-cli/releases/download/v1.1.3/nb_1.1.3_darwin_arm64.tar.gz"
-      sha256 "cf47222923874b243eb43dfe74ca41283d5d3ec5bb2e43e31bc48ae4a6418c56"
+      url "https://github.com/ardasevinc/netbird-cli/releases/download/v1.1.4/nb_1.1.4_darwin_arm64.tar.gz"
+      sha256 "78eca676a3ca6b52585a98694887dea20b5c7ad53d667f6f4f3ef84b38aec159"
 
       define_method(:install) do
         bin.install "nb"
@@ -29,15 +29,15 @@ class Nb < Formula
 
   on_linux do
     if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
-      url "https://github.com/ardasevinc/netbird-cli/releases/download/v1.1.3/nb_1.1.3_linux_amd64.tar.gz"
-      sha256 "2f44e6599ffaddcbd272f174a50f59ff9c666304e100bd651af6967404ab4619"
+      url "https://github.com/ardasevinc/netbird-cli/releases/download/v1.1.4/nb_1.1.4_linux_amd64.tar.gz"
+      sha256 "635467bfe401bc5c7d7722e32c695a1fdb5d1055fffb6132cc8e132446890bd3"
       define_method(:install) do
         bin.install "nb"
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/ardasevinc/netbird-cli/releases/download/v1.1.3/nb_1.1.3_linux_arm64.tar.gz"
-      sha256 "12eea47bccb7280e424637c90b2c2f9ec73c02a9ef092bdab50e07b342f0e190"
+      url "https://github.com/ardasevinc/netbird-cli/releases/download/v1.1.4/nb_1.1.4_linux_arm64.tar.gz"
+      sha256 "8e878dc7d1b30e6564825b6ea696f8871dbbc81897a80c06857668f772c479aa"
       define_method(:install) do
         bin.install "nb"
       end
