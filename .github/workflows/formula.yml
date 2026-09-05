@@ -122,6 +122,10 @@ jobs:
       - name: Install and test the checked-out cask
         run: |
           brew tap ardasevinc/tap "$GITHUB_WORKSPACE"
+          # Developer mode turns deprecated cask DSL into a CI failure.
+          for cask_file in Casks/*.rb; do
+            HOMEBREW_DEVELOPER=1 brew info --cask "ardasevinc/tap/$(basename "$cask_file" .rb)"
+          done
           brew install --cask ardasevinc/tap/herdr-codex-bridge
           herdr-self --version > "$RUNNER_TEMP/herdr-self-version.txt"
           expected_version="$(sed -n 's/^[[:space:]]*version "\([^"]*\)"/\1/p' Casks/herdr-codex-bridge.rb | head -n 1)"
