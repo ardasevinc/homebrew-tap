@@ -6,25 +6,25 @@ cask "herdr-codex-bridge" do
     end
   end
 
-  version "0.1.6"
+  version "0.1.7"
 
   on_macos do
     on_arm do
-      sha256 "12488bc263903afa3c7c8f7e9af2586b64eb14dfcdfa481bc2d435bad84f4acb"
+      sha256 "d4b0bd24cfdc09a74d1fa2943ade27c295990b8696341f9e9382056f6c9cad3e"
       url "https://github.com/ardasevinc/herdr-codex-bridge/releases/download/v#{version}/herdr-codex-bridge_#{version}_darwin_arm64.tar.gz"
     end
     on_intel do
-      sha256 "2dd7c812ceb5377e7099804abe0214c285a5291d6369ddeab6c0c9c316996a8b"
+      sha256 "23453007e88854f65696eda43d04637a727242a466bfeb8b5ed7324a22bbf299"
       url "https://github.com/ardasevinc/herdr-codex-bridge/releases/download/v#{version}/herdr-codex-bridge_#{version}_darwin_amd64.tar.gz"
     end
   end
   on_linux do
     on_arm do
-      sha256 "808e0bdd5db3dc16af4fb601216f4c3e0a707204d7494fadbffe18eb3959c8c1"
+      sha256 "3607896663fa28f40d8c455b9efed0c24508d01bcc3200212fd6195bd6bd7dd4"
       url "https://github.com/ardasevinc/herdr-codex-bridge/releases/download/v#{version}/herdr-codex-bridge_#{version}_linux_arm64.tar.gz"
     end
     on_intel do
-      sha256 "c96aa063eac27df4e20af0a5ea3e480aaa13965dcc4fa3e8735607e169e9f357"
+      sha256 "5dec5c59a1296a3395c7119b8de71b1c0159cbe4ec5bcadd7f858418dab1d5dc"
       url "https://github.com/ardasevinc/herdr-codex-bridge/releases/download/v#{version}/herdr-codex-bridge_#{version}_linux_amd64.tar.gz"
     end
   end
