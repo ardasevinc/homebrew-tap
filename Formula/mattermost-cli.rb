@@ -1,26 +1,26 @@
 class MattermostCli < Formula
   desc "Mattermost CLI for agents and humans"
   homepage "https://github.com/ardasevinc/mattermost-cli"
-  version "2.1.0"
+  version "2.1.1"
   license "MIT"
 
   on_macos do
     if Hardware::CPU.arm?
       url "https://github.com/ardasevinc/mattermost-cli/releases/download/v#{version}/mattermost-cli_#{version}_darwin_arm64.tar.gz"
-      sha256 "a1e21d40cb8bc9e718f05ea2541cde5f83ca4cfd4aba3d406e16e84dd3aa8110"
+      sha256 "d396a75ff61e6b1769834625eec7602a6e06a25d4ffb9abd46a264e435d75fbd"
     else
       url "https://github.com/ardasevinc/mattermost-cli/releases/download/v#{version}/mattermost-cli_#{version}_darwin_amd64.tar.gz"
-      sha256 "edf9d707d8dc3bdea1fd526f31a714d386d7d6cb4f18c6fd581e6a61cf1d9c65"
+      sha256 "27e29fd7bcdc788d645dde948a3d414f22d9f09acc36dde5be9886862ca3f594"
     end
   end
 
   on_linux do
     if Hardware::CPU.arm?
       url "https://github.com/ardasevinc/mattermost-cli/releases/download/v#{version}/mattermost-cli_#{version}_linux_arm64.tar.gz"
-      sha256 "d61e08a0ae74c089a4238ab38416d011b71aebc4233f31fa3de340354fba529b"
+      sha256 "ceaeb3a356bdf554b98ccdc753bfa2cbd8295d1a09ecd21d1d64e59537917a9b"
     else
       url "https://github.com/ardasevinc/mattermost-cli/releases/download/v#{version}/mattermost-cli_#{version}_linux_amd64.tar.gz"
-      sha256 "70cf07e2d6acf60af85b12729df4782a133f61a72f2471e992e382b114164061"
+      sha256 "360f705b7d2e62c08b93f5959082ca9de37a93d52b38025f1c4667a65078f45b"
     end
   end
 
