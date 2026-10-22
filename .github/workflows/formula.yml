@@ -86,9 +86,16 @@ jobs:
           brew install ardasevinc/tap/tele
           brew test ardasevinc/tap/tele
           tele --version
+          echo "Checking Tele help"
           tele --help >/dev/null
-          tele --json update --check > "$RUNNER_TEMP/tele-update.json"
-          python3 -c 'import json,sys; d=json.load(open(sys.argv[1]))["data"]; assert d["status"] == "current" and d["install_manager"] == "homebrew" and d["update_supported"] is False and d["recommended_command"] == "brew upgrade tele"' "$RUNNER_TEMP/tele-update.json"
+          echo "Checking Tele updater"
+          tele --json update --check > "$RUNNER_TEMP/tele-update.json" || {
+            status=$?
+            cat "$RUNNER_TEMP/tele-update.json"
+            exit "$status"
+          }
+          echo "Validating Tele updater result"
+          python3 -c 'import json,sys; d=json.load(open(sys.argv[1]))["data"]; assert d["status"] == "current" and d["install_manager"] == "homebrew" and d["update_supported"] is False and d["recommended_command"] == "brew upgrade tele", d' "$RUNNER_TEMP/tele-update.json"
 
   herdr-codex-bridge:
     name: herdr-codex-bridge (${{ matrix.target }})
